@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.subHeading {
+    color: white;
+    margin: 0;
+    font-family: "Exo 2";
+    font-weight: bold;
+    font-style: normal;
+    font-size: 22px;
+    text-align: center;
+}
+
+.TabContainer {
+    background-color: #050816;
+}
+
+.TabHeader {
+    margin-top: 6px;
+    background-image: linear-gradient(94deg, #050816 0%, #0F172A 100%);
+    display: flex;
+    align-items: center;
+    padding: 12px 0px 12px 8px;
+    width: 100%;
+    justify-content: space-between;
+    color: white;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.innerHeading {
+    margin: 0;
+}
+
+.TabHeader>img {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
+
+.left {
+    background-color: #111827;
+    overflow-y: auto;
+    width: 28%;
+    overflow-x: hidden;
+    box-shadow: 2px 0px 2px rgba(15, 23, 42, 0.5);
+    padding: 30px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header>hr {
+    width: 240px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+    scrollbar-color: hotpink blue;
+    /* thumb color, track color */
+    scrollbar-width: none;
+    /* optional: thin, auto, or none */
+}
+
+.Optioninput select {
+    background-color: transparent;
+    color: white;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 13.5px;
+    padding: 8px 8px 8px 12px;
+    border-radius: 4px;
+}
+
+.Blueline {
+    border: 0;
+    border-top: 3px solid rgba(71, 85, 105, 0.5);
+    width: 380px;
+}
+
+#row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#row>img {
+    width: 32px;
+    height: 32px;
+}
+
+.topBottom {
+    display: flex;
+    padding: 4px 40px 12px 20px;
+    flex-direction: column;
+}
+
+select,
+::picker(select) {
+    appearance: base-select;
+}
+
+label {
+    color: white;
+    font-family: "Exo 2";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.unitsHolder {
+    display: flex;
+    align-items: center;
+}
+
+.unitsHolder>p {
+    color: white;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 6px;
+}
+.left button:hover{
+    transform: scale(1.02);
+    border: solid 2px #4F46E5;
+}
+ul {
+    color: white;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 15px;
+    font-style: normal;
+    margin: 0;
+    padding: 12px 0px 16px 32px;
+    line-height: 28px;
+}
+
+.buttonsHolder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.basic {
+    background-color: transparent;
+    border: solid 2px #F5F5F5;
+}
+.special{
+    background-image:linear-gradient(135deg, #00C2FF 0%, #4F46E5 50%, #9333EA 100%);
+    border: none;
+}
+.specialText{
+
+  background-image: linear-gradient(90deg, #FDE68A, #F59E0B, #FBBF24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  padding: 0;
+}
+.left button {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Exo 2";
+    font-style: normal;
+    border-radius: 4px;
+    padding: 12px 12px;
+    margin-bottom: 10px;
+    transition: all 500ms;
+
+}
+
+.buttons>button {
+    width: 100%;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    
+    margin-bottom: 20px;
+}
+.secondary {
+    background-color: #5B21B6;
+    border: none;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    color: white;
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    border: solid 1px white;
+    font-size: 13.5px;
+    padding: 8px 8px 8px 12px;
+    border-radius: 4px;
+}
+
+input[type="number"] {
+    background-color: transparent;
+    color: white;
+    font-family: "Inter";
+    font-weight: 400;
+    width: 90%;
+    font-style: normal;
+    border: solid 1px white;
+    font-size: 13.5px;
+    padding: 8px 8px 8px 12px;
+    border-radius: 4px;
+}
+
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+select::picker-icon {
+    color: white;
+    transition: 0.4s rotate;
+    margin-right: 4px;
+}
+
+select::picker(select) {
+    border: none;
+}
+
+option:hover {
+    background-color: #1F2C47;
+}
+
+option {
+    display: flex;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 13.5px;
+    justify-content: flex-start;
+    gap: 20px;
+    background: #111827;
+    padding: 4px;
+    color: white;
+    transition: all 0.4s;
+}
+
+
+option:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+::picker(select) {
+    border-radius: 8px;
+    background-color: beige;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}

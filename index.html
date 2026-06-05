@@ -1,0 +1,216 @@
+<html>
+
+<head>
+    <link rel="icon" href="assets/Owlet_Monster.png">
+    <link rel="stylesheet" href="main.css">
+    <title>Gravity X</title>
+</head>
+
+<body>
+    <div class="left">
+        <div class="header">
+            <p class="subHeading">X-Planet Editor</p>
+            <hr>
+        </div>
+        <div class="group">
+            <div class="TabHeader">
+                <p class="innerHeading">Planet Profile</p>
+                <img src="assets/dropdown-svgrepo-com.png">
+            </div>
+            <div class="TabContainer">
+                <div class="planet">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Planet Type</label>
+                            <select>
+                                <option>Mercury</option>
+                                <option>Venus</option>
+                                <option>Earth</option>
+                                <option>Mars</option>
+                                <option>Jupiter</option>
+                                <option>Saturn</option>
+                                <option>Uranus</option>
+                                <option>Neptune</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nameInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Name</label>
+                            <input type="text" placeholder="Seak Seven">
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="galaxyInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Galaxy</label>
+                            <input type="text" placeholder="Orion Veil">
+                        </div>
+                    </div>
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Star System</label>
+                            <select>
+                                <option>DR-67</option>
+                                <option>AR-67</option>
+                                <option>A6-B7</option>
+                                <option>D34+33</option>
+                                <option>H85-18</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="LookInfo">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Atmosphere</label>
+                            <select>
+                                <option value="stable">Stable</option>
+                                <option value="Toxic">Toxic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="Fileinput">
+                        <div class="topBottom">
+                            <label>Surface Texture</label>
+                            <div id="row">
+                                <input type="text" disabled value="Earth.png">
+                                <input type="file" accept=".jpg, .jpeg, .png, image/*" style="display: none;"
+                                    id="SurfaceTextureFile">
+                                <img src="assets/upload-square-svgrepo-com.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="CivilizationInfo">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Civilization</label>
+                            <select>
+                                <option value="ancient">Ancient</option>
+                                <option value="modern">Modern</option>
+                                <option value="modern">Futuristic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="Blueline">
+        <div class="group">
+            <div class="TabHeader">
+                <p class="innerHeading">Physical Properties</p>
+                <img src="assets/dropdown-svgrepo-com.png">
+            </div>
+            <div class="TabContainer">
+                <div class="PlanetInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Planet Mass</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.19 x 10&#8310">
+                                <p class="units">kg</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Radius</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.19 x 10&#8310">
+                                <p class="units">m</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Rotation Speed</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.81">
+                                <p class="units">m/s</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="CentralBody">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Distance From Central Body</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.81">
+                                <p class="units">m</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Mass Of Central Body</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.81">
+                                <p class="units">kg</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="Blueline">
+        <div class="group">
+            <div class="TabHeader">
+                <p class="innerHeading">Simulation Analysis</p>
+            </div>
+            <div class="TabContainer">
+                <ul>
+                    <li>Acceleration Due To Gravity: 10.5m/s&sup2</li>
+                    <li>Escape Velocity: 11.2m/s</li>
+                    <li>Orbital Period: 365 Days</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="buttonsHolder">
+            <div class="buttons">
+            <button class="basic">Export Planet</button>
+            <button class="secondary">Import Planet</button>
+            <button class="special"><p class="specialText">Generate Poster</p></button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="right">
+        <nav>
+            <button class="active">Galaxy</button>
+            <button>Air Bound</button>
+            <button>Data</button>
+            <button>Revolving Physics</button>
+        </nav>
+        <section id="canvasHolder">
+            <canvas id="canvas"></canvas>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -141,10 +141,12 @@ label {
     font-weight: 300;
     margin-left: 6px;
 }
-.left button:hover{
+
+.left button:hover {
     transform: scale(1.02);
     border: solid 2px #4F46E5;
 }
+
 ul {
     color: white;
     font-family: "Exo 2";
@@ -168,19 +170,22 @@ ul {
     background-color: transparent;
     border: solid 2px #F5F5F5;
 }
-.special{
-    background-image:linear-gradient(135deg, #00C2FF 0%, #4F46E5 50%, #9333EA 100%);
+
+.special {
+    background-image: linear-gradient(135deg, #00C2FF 0%, #4F46E5 50%, #9333EA 100%);
     border: none;
 }
-.specialText{
 
-  background-image: linear-gradient(90deg, #FDE68A, #F59E0B, #FBBF24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
-  padding: 0;
+.specialText {
+
+    background-image: linear-gradient(90deg, #FDE68A, #F59E0B, #FBBF24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    padding: 0;
 }
+
 .left button {
     color: white;
     font-size: 15px;
@@ -194,17 +199,63 @@ ul {
 
 }
 
+.right {
+    background-image: url("assets/space.png");
+    background-repeat: repeat;
+    background-size: contain;
+    width: 80%;
+    padding: 32px;
+}
+
+nav>button:not(.active) {
+    background-color: #475569;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 4px;
+    padding: 13px 20px;
+    border: none;
+    font-style: normal;
+    border-radius: 12px;
+    min-width: 150px;
+    color: white;
+    transition: all 800ms;
+}
+
+nav>button:hover {
+    transform: scale(1.05);
+}
+
+.active {
+    background-image: linear-gradient(135deg, #5B21B6, #7C3AED, #C026D3);
+    border: solid 1px #4F46E5;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 300ms;
+    margin-left: 4px;
+    box-shadow: 0px 8px 20px rgba(139, 92, 246, 0.6);
+    padding: 13px 20px;
+    border: none;
+    font-style: normal;
+    border-radius: 12px;
+    min-width: 150px;
+    color: white;
+}
+
 .buttons>button {
     width: 100%;
 }
-.buttons{
+
+.buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 90%;
-    
+
     margin-bottom: 20px;
 }
+
 .secondary {
     background-color: #5B21B6;
     border: none;

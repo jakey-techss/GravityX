@@ -6,6 +6,7 @@ body {
     display: flex;
     overflow-y: hidden;
     overflow-x: hidden;
+    font-style: normal;
     box-sizing: border-box;
 }
 
@@ -18,13 +19,15 @@ body {
     font-size: 22px;
     text-align: center;
 }
-
+.Container {
+    background-color: #050816;
+}
 .TabContainer {
     background-color: #050816;
 }
 
 .TabHeader {
-    margin-top: 6px;
+    margin-top: 2px;
     background-image: linear-gradient(94deg, #050816 0%, #0F172A 100%);
     display: flex;
     align-items: center;
@@ -46,7 +49,7 @@ body {
     width: 18px;
     height: 18px;
     margin-right: 12px;
-    transform: rotate(180deg);
+    transform: rotate(270deg);
     transition: all 0.5s;
 }
 
@@ -60,7 +63,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+img{
+    user-select: none;
+}
 .header>hr {
     width: 240px;
 }

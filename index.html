@@ -23,6 +23,7 @@
                         <div class="topBottom">
                             <label>Planet Type</label>
                             <select>
+                                <option>Custom</option>
                                 <option>Mercury</option>
                                 <option>Venus</option>
                                 <option>Earth</option>
@@ -31,7 +32,6 @@
                                 <option>Saturn</option>
                                 <option>Uranus</option>
                                 <option>Neptune</option>
-                                <option>Custom</option>
                             </select>
                         </div>
                     </div>
@@ -208,10 +208,11 @@
             <button>Revolving Physics</button>
         </nav>
         <section id="canvasHolder">
-            <canvas id="canvas"></canvas>
+            <canvas id="planet-canvas"></canvas>
         </section>
     </div>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
+    <script src="render.js" type="module"></script>
 </body>
 
 </html>

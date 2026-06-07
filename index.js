@@ -58,22 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    document.getElementById("import").addEventListener("click", () => {
-        document.getElementById("PlanetFile").click()
-        document.getElementById("PlanetFile").addEventListener("change", async function(e){
-
-            const file = e.target.files[0];
-
-            if (!file) return;
-                const text = await file.text();
-                const jsonData = JSON.parse(text);
-                console.log(jsonData)
-                updatePlanetsWithJSON(jsonData)
-
-
-
-        })
-    })
+    
 
 })
 //Creating Planets

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { findPlanet, replacemesh, throwError } from "./Extras";
+import { findPlanet, replacemesh, throwError, updatePlanetsWithJSON } from "./Extras";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 //Possible Planets
 //Standard Basics
@@ -46,14 +46,21 @@ document.getElementById("selectPlanet").addEventListener("change", () => {
         const mat = new THREE.MeshStandardMaterial({
             map: loader.load(`assets/planets/${document.getElementById("selectPlanet").value}.png`)
         })
-        camera.position.z = 50
-        camera.position.x = 0
-        camera.position.y = 0
-        document.getElementById("reset").addEventListener("click", () => {
+        if (planetObject.radius / 2.4398e+6 > 40) {
             camera.position.z = 110
-            camera.position.x = 0
-            camera.position.y = 0
-        })
+            document.getElementById("reset").addEventListener("click", () => {
+                camera.position.z = 110
+                camera.position.x = 0
+                camera.position.y = 0
+            })
+        } else {
+            camera.position.z = 50
+            document.getElementById("reset").addEventListener("click", () => {
+                camera.position.z = 50
+                camera.position.x = 0
+                camera.position.y = 0
+            })
+        }
         const Newplanet = new THREE.Mesh(geo, mat)
         replacemesh(planet, Newplanet, earthGroup)
         planet = Newplanet
@@ -79,7 +86,7 @@ document.getElementById("reset").addEventListener("click", () => {
     camera.position.y = 0
 })
 
-document.getElementById("rotationSpeed").addEventListener("focusout",()=>{
+document.getElementById("rotationSpeed").addEventListener("focusout", () => {
     rotationSpeed = (document.getElementById("rotationSpeed").value / 12569)
 })
 document.getElementById("fileUpload").addEventListener("click", () => {
@@ -169,20 +176,61 @@ document.getElementById("planetRadius").addEventListener("focusout", () => {
 document.getElementById("dcb").addEventListener("focusout", () => {
     if (document.getElementById("dcb").value != "" && document.getElementById("mcb").value != "" && document.getElementById("mcb").value > 0 && document.getElementById("dcb").value > 0) {
         document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(document.getElementById("dcb").value, 3) / ((6.67 * Math.pow(10, -11)) * document.getElementById("mcb").value))) * 0.00001157).toFixed(2)
-        
-    }else{
-        throwError("Invalid Input","dcb")
+
+    } else {
+        throwError("Invalid Input", "dcb")
     }
 })
 
 document.getElementById("mcb").addEventListener("focusout", () => {
     if (document.getElementById("dcb").value != "" && document.getElementById("mcb").value != "" && document.getElementById("mcb").value > 0 && document.getElementById("dcb").value > 0) {
-        
+
         document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(document.getElementById("dcb").value, 3) / ((6.67 * Math.pow(10, -11)) * document.getElementById("mcb").value))) * 0.00001157).toFixed(2)
-        
-    }else{
-        throwError("Invalid Input","mcb")
+
+    } else {
+        throwError("Invalid Input", "mcb")
     }
+})
+
+document.getElementById("import").addEventListener("click", () => {
+    document.getElementById("PlanetFile").click()
+    document.getElementById("PlanetFile").addEventListener("change", async function (e) {
+
+        const file = e.target.files[0];
+
+        if (!file) return;
+        const text = await file.text();
+        const jsonData = JSON.parse(text);
+        console.log(jsonData)
+        updatePlanetsWithJSON(jsonData)
+        
+        let planetObject = jsonData
+        const geo = new THREE.IcosahedronGeometry(planetObject.radius / 2.4398e+6, 12)
+        const mat = new THREE.MeshStandardMaterial({
+            map: loader.load(`${planetObject.surfaceTexture}`)
+        })
+        if (document.getElementById("planetRadius").value / 2.4398e+6 > 40) {
+            camera.position.z = 110
+            document.getElementById("reset").addEventListener("click", () => {
+                camera.position.z = 110
+                camera.position.x = 0
+                camera.position.y = 0
+            })
+        } else {
+            camera.position.z = 50
+            document.getElementById("reset").addEventListener("click", () => {
+                camera.position.z = 50
+                camera.position.x = 0
+                camera.position.y = 0
+            })
+        }
+        const Newplanet = new THREE.Mesh(geo, mat)
+        replacemesh(planet, Newplanet, earthGroup)
+        planet = Newplanet
+        rotationSpeed = (planetObject.rotation_speed / 12569)
+
+
+    })
 })
 animate()
 

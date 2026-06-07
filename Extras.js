@@ -87,11 +87,11 @@ export function updatePlanets(planetSelected) {
         document.getElementById("mcb").value = Currentplanet.mcb
         document.getElementById("mcb").disabled = true
 
-        document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(2)
+        document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(4)
         //
-        document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(2)
+        document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(4)
         //Orbital Period
-        document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(2)
+        document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(4)
     } else {
         let Currentplanet = allPlanets.find((planet) => {
             if (planet.name == planetSelected) {
@@ -134,11 +134,11 @@ export function updatePlanets(planetSelected) {
 
         document.getElementById("mcb").value = Currentplanet.mcb
 
-        document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(2)
+        document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(4)
         //
-        document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(2)
+        document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(4)
         //Orbital Period
-        document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(2)
+        document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(4)
     }
 }
 
@@ -184,11 +184,11 @@ export function updatePlanetsWithJSON(planet) {
 
     document.getElementById("mcb").value = Currentplanet.mcb
 
-    document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(2)
+    document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(4)
     //
-    document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(2)
+    document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(4)
     //Orbital Period
-    document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(2)
+    document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(4)
 }
 
 export function replacemesh(oldMesh, newMesh, scene) {

@@ -68,7 +68,7 @@ export function updatePlanets(planetSelected) {
         document.getElementById("atm").disabled = true
 
         document.getElementById("surfaceTexture").value = Currentplanet.surfaceTexture
-         document.getElementById("fileUpload").style.display = "none"
+        document.getElementById("fileUpload").style.display = "none"
 
         document.getElementById("Civilization").value = Currentplanet.civilzation
         document.getElementById("Civilization").disabled = true
@@ -140,6 +140,55 @@ export function updatePlanets(planetSelected) {
         //Orbital Period
         document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(2)
     }
+}
+
+export function updatePlanetsWithJSON(planet) {
+
+    let Currentplanet = planet
+    document.getElementById("planetName").value = Currentplanet.name
+    document.getElementById("planetName").disabled = false
+    document.getElementById("galaxyName").disabled = false
+    document.getElementById("atm").disabled = false
+    document.getElementById("Civilization").disabled = false
+    document.getElementById("planetMass").disabled = false
+    document.getElementById("planetRadius").disabled = false
+    document.getElementById("rotationSpeed").disabled = false
+    document.getElementById("dcb").disabled = false
+    document.getElementById("mcb").disabled = false
+    document.getElementById("selectPlanet").value = "Custom"
+ 
+
+
+    document.getElementById("galaxyName").value = Currentplanet.galaxy
+
+
+    document.getElementById("atm").value = Currentplanet.atmosphere
+
+
+    document.getElementById("surfaceTexture").value = Currentplanet.surfaceTexture
+    document.getElementById("fileUpload").style.display = "flex"
+
+    document.getElementById("Civilization").value = Currentplanet.civilzation
+
+    document.getElementById("planetMass").value = Currentplanet.mass
+
+
+    document.getElementById("planetRadius").value = Currentplanet.radius
+
+
+    document.getElementById("rotationSpeed").value = Currentplanet.rotation_speed
+
+
+    document.getElementById("dcb").value = Currentplanet.dcb
+
+
+    document.getElementById("mcb").value = Currentplanet.mcb
+
+    document.getElementById("adg").innerHTML = (((6.67 * Math.pow(10, -11)) * Currentplanet.mass) / Math.pow(Currentplanet.radius, 2)).toFixed(2)
+    //
+    document.getElementById("ev").innerHTML = Math.pow(((((6.67 * Math.pow(10, -11)) * Currentplanet.mass) * 2) / Currentplanet.radius), 0.5).toFixed(2)
+    //Orbital Period
+    document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(Currentplanet.dcb, 3) / ((6.67 * Math.pow(10, -11)) * Currentplanet.mcb))) * 0.00001157).toFixed(2)
 }
 
 export function replacemesh(oldMesh, newMesh, scene) {
@@ -274,12 +323,14 @@ const neptune = new Planets(
     4.515e12
 );
 
-export function throwError(message,id){
+export function throwError(message, id) {
+    document.getElementById(id).style.borderColor = "red"
     document.getElementById("error").innerHTML = message
     document.getElementById("errorBox").style.opacity = 1
-    setTimeout(()=>{
-        
-    document.getElementById("errorBox").style.opacity = 0
-    document.getElementById(id).style.borderColor = "white"
-    },3000)
+
+    setTimeout(() => {
+
+        document.getElementById("errorBox").style.opacity = 0
+        document.getElementById(id).style.borderColor = "white"
+    }, 3000)
 }

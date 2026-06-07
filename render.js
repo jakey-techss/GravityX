@@ -79,11 +79,13 @@ document.getElementById("reset").addEventListener("click", () => {
     camera.position.y = 0
 })
 
+document.getElementById("rotationSpeed").addEventListener("focusout",()=>{
+    rotationSpeed = (document.getElementById("rotationSpeed").value / 12569)
+})
 document.getElementById("fileUpload").addEventListener("click", () => {
     document.getElementById("SurfaceTextureFile").click()
     document.getElementById("SurfaceTextureFile").addEventListener("change", (e) => {
         document.getElementById("surfaceTexture").value = document.getElementById("SurfaceTextureFile").value.split(`\\`)[document.getElementById("SurfaceTextureFile").value.split(`\\`).length - 1]
-        const input = document.getElementById("fileInput");
 
 
         const file = e.target.files[0];
@@ -94,7 +96,6 @@ document.getElementById("fileUpload").addEventListener("click", () => {
 
         reader.onload = (e) => {
             const imageURL = e.target.result
-
             const mat = new THREE.MeshStandardMaterial({
                 map: loader.load(`${imageURL}`)
             })
@@ -168,12 +169,19 @@ document.getElementById("planetRadius").addEventListener("focusout", () => {
 document.getElementById("dcb").addEventListener("focusout", () => {
     if (document.getElementById("dcb").value != "" && document.getElementById("mcb").value != "" && document.getElementById("mcb").value > 0 && document.getElementById("dcb").value > 0) {
         document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(document.getElementById("dcb").value, 3) / ((6.67 * Math.pow(10, -11)) * document.getElementById("mcb").value))) * 0.00001157).toFixed(2)
+        
+    }else{
+        throwError("Invalid Input","dcb")
     }
 })
 
 document.getElementById("mcb").addEventListener("focusout", () => {
     if (document.getElementById("dcb").value != "" && document.getElementById("mcb").value != "" && document.getElementById("mcb").value > 0 && document.getElementById("dcb").value > 0) {
+        
         document.getElementById("op").innerHTML = ((2 * Math.PI * Math.sqrt(Math.pow(document.getElementById("dcb").value, 3) / ((6.67 * Math.pow(10, -11)) * document.getElementById("mcb").value))) * 0.00001157).toFixed(2)
+        
+    }else{
+        throwError("Invalid Input","mcb")
     }
 })
 animate()

@@ -75,9 +75,11 @@
                         <div class="topBottom">
                             <label>Surface Texture</label>
                             <div id="row">
-                                <input type="text" disabled value="Seak Seven.png" id="surfaceTexture">
+                                <input type="text" disabled value="" id="surfaceTexture" autocomplete="off">
                                 <input type="file" accept=".jpg, .jpeg, .png, image/*" style="display: none;"
                                     id="SurfaceTextureFile">
+                                    <input type="file" accept=".planet" style="display: none;"
+                                    id="PlanetFile">
                                 <img src="assets/upload-square-svgrepo-com.png" id="fileUpload">
                                  <img src="assets/shop.png">
                             </div>
@@ -114,7 +116,7 @@
                         <div class="topBottom">
                             <label>Planet Mass</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass">
+                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass" autocomplete="off">
                                 <p class="units">kg</p>
                             </div>
                         </div>
@@ -124,7 +126,7 @@
                         <div class="topBottom">
                             <label>Radius</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="2e+6 - 1.54e+8" id="planetRadius">
+                                <input type="number" placeholder="2e+6 - 1.54e+8" id="planetRadius" autocomplete="off">
                                 <p class="units">m</p>
                             </div>
                         </div>
@@ -133,7 +135,7 @@
                         <div class="topBottom">
                             <label>Rotation Speed</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="0 - &#8734" id="rotationSpeed">
+                                <input type="number" placeholder="1 - &#8734" id="rotationSpeed" autocomplete="off">
                                 <p class="units">m/s</p>
                             </div>
                         </div>
@@ -148,7 +150,7 @@
                         <div class="topBottom">
                             <label>Distance From Central Body</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.81" id="dcb">
+                                <input type="number" placeholder="1 - &#8734" id="dcb" autocomplete="off">
                                 <p class="units">m</p>
                             </div>
                         </div>
@@ -158,7 +160,7 @@
                         <div class="topBottom">
                             <label>Mass Of Central Body</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.81" id="mcb">
+                                <input type="number" placeholder="1 - &#8734" id="mcb" autocomplete="off">
                                 <p class="units">kg</p>
                             </div>
                         </div>
@@ -183,8 +185,8 @@
 
         <div class="buttonsHolder">
             <div class="buttons">
-            <button class="basic">Export Planet</button>
-            <button class="special"><p class="specialText">Import Planet</p></button>
+            <button class="basic" id="export">Export Planet</button>
+            <button class="special" id="import"><p class="specialText">Import Planet</p></button>
             </div>
         </div>
 

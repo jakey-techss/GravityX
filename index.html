@@ -22,16 +22,16 @@
                     <div class="Optioninput">
                         <div class="topBottom">
                             <label>Planet Type</label>
-                            <select>
-                                <option>Custom</option>
-                                <option>Mercury</option>
-                                <option>Venus</option>
-                                <option>Earth</option>
-                                <option>Mars</option>
-                                <option>Jupiter</option>
-                                <option>Saturn</option>
-                                <option>Uranus</option>
-                                <option>Neptune</option>
+                            <select id="selectPlanet">
+                                <option value="Custom">Custom</option>
+                                <option value="Mercury">Mercury</option>
+                                <option value="Venus">Venus</option>
+                                <option value="Earth">Earth</option>
+                                <option value="Mars">Mars</option>
+                                <option value="Jupiter">Jupiter</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Uranus">Uranus</option>
+                                <option value="Neptune">Neptune</option>
                             </select>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="Textinput">
                         <div class="topBottom">
                             <label>Name</label>
-                            <input type="text" placeholder="Seak Seven">
+                            <input type="text" placeholder="Seak Seven" id="planetName">
                         </div>
 
                     </div>
@@ -53,21 +53,10 @@
                     <div class="Textinput">
                         <div class="topBottom">
                             <label>Galaxy</label>
-                            <input type="text" placeholder="Orion Veil">
+                            <input type="text" placeholder="Orion Veil" id="galaxyName">
                         </div>
                     </div>
-                    <div class="Optioninput">
-                        <div class="topBottom">
-                            <label>Star System</label>
-                            <select>
-                                <option>DR-67</option>
-                                <option>AR-67</option>
-                                <option>A6-B7</option>
-                                <option>D34+33</option>
-                                <option>H85-18</option>
-                            </select>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <hr class="Blueline">
@@ -76,9 +65,9 @@
                     <div class="Optioninput">
                         <div class="topBottom">
                             <label>Atmosphere</label>
-                            <select>
+                            <select id="atm">
                                 <option value="stable">Stable</option>
-                                <option value="Toxic">Toxic</option>
+                                <option value="toxic">Toxic</option>
                             </select>
                         </div>
                     </div>
@@ -86,10 +75,11 @@
                         <div class="topBottom">
                             <label>Surface Texture</label>
                             <div id="row">
-                                <input type="text" disabled value="Earth.png">
+                                <input type="text" disabled value="Seak Seven.png" id="surfaceTexture">
                                 <input type="file" accept=".jpg, .jpeg, .png, image/*" style="display: none;"
                                     id="SurfaceTextureFile">
-                                <img src="assets/upload-square-svgrepo-com.png">
+                                <img src="assets/upload-square-svgrepo-com.png" id="fileUpload">
+                                 <img src="assets/shop.png">
                             </div>
                         </div>
                     </div>
@@ -101,10 +91,11 @@
                     <div class="Optioninput">
                         <div class="topBottom">
                             <label>Civilization</label>
-                            <select>
-                                <option value="ancient">Ancient</option>
-                                <option value="modern">Modern</option>
-                                <option value="modern">Futuristic</option>
+                            <select id="Civilization">
+                                <option value="None">None</option>
+                                <option value="Ancient">Ancient</option>
+                                <option value="Modern">Modern</option>
+                                <option value="Futuristic">Futuristic</option>
                             </select>
                         </div>
                     </div>
@@ -123,7 +114,7 @@
                         <div class="topBottom">
                             <label>Planet Mass</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.19 x 10&#8310">
+                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass">
                                 <p class="units">kg</p>
                             </div>
                         </div>
@@ -133,7 +124,7 @@
                         <div class="topBottom">
                             <label>Radius</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.19 x 10&#8310">
+                                <input type="number" placeholder="2e+6 - 1.54e+8" id="planetRadius">
                                 <p class="units">m</p>
                             </div>
                         </div>
@@ -142,7 +133,7 @@
                         <div class="topBottom">
                             <label>Rotation Speed</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.81">
+                                <input type="number" placeholder="0 - &#8734" id="rotationSpeed">
                                 <p class="units">m/s</p>
                             </div>
                         </div>
@@ -157,7 +148,7 @@
                         <div class="topBottom">
                             <label>Distance From Central Body</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.81">
+                                <input type="number" placeholder="1.81" id="dcb">
                                 <p class="units">m</p>
                             </div>
                         </div>
@@ -167,7 +158,7 @@
                         <div class="topBottom">
                             <label>Mass Of Central Body</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.81">
+                                <input type="number" placeholder="1.81" id="mcb">
                                 <p class="units">kg</p>
                             </div>
                         </div>
@@ -183,9 +174,9 @@
             </div>
             <div class="Container">
                 <ul>
-                    <li>Acceleration Due To Gravity: 10.5m/s&sup2</li>
-                    <li>Escape Velocity: 11.2m/s</li>
-                    <li>Orbital Period: 365 Days</li>
+                    <li>Acceleration Due To Gravity: <span id="adg">NaN</span>m/s&sup2</li>
+                    <li>Escape Velocity: <span id="ev">NaN</span>m/s</li>
+                    <li>Orbital Period: <span id="op">NaN</span>Days</li>
                 </ul>
             </div>
         </div>
@@ -193,8 +184,7 @@
         <div class="buttonsHolder">
             <div class="buttons">
             <button class="basic">Export Planet</button>
-            <button class="secondary">Import Planet</button>
-            <button class="special"><p class="specialText">Generate Poster</p></button>
+            <button class="special"><p class="specialText">Import Planet</p></button>
             </div>
         </div>
 
@@ -210,6 +200,10 @@
         <section id="canvasHolder">
             <canvas id="planet-canvas"></canvas>
         </section>
+    </div>
+    <button id="reset" class="activeReset">Reset Camera</button>
+    <div id="errorBox">
+        <p id="error">Invalid Mass</p>
     </div>
     <script src="index.js" type="module"></script>
     <script src="render.js" type="module"></script>

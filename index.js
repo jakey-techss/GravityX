@@ -1,4 +1,4 @@
-import { dropDown } from "./function.js"
+import { dropDown, updatePlanets } from "./Extras.js"
 document.addEventListener("DOMContentLoaded",()=>{
     document.querySelectorAll(".left .TabContainer").forEach((container)=>{
         container.style.display = "none"
@@ -12,4 +12,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("physical").addEventListener("click",()=>{
         physicalTabOpen = dropDown(physicalTabOpen, "physicalContainer","physicalIcon")
     })
+
+    document.getElementById("selectPlanet").addEventListener("change",()=>{
+        updatePlanets(document.getElementById("selectPlanet").value)
+    })
+
+    
+
 })
+//Creating Planets
+

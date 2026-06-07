@@ -52,7 +52,12 @@ body {
     transform: rotate(270deg);
     transition: all 0.5s;
 }
-
+#reset{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+}
 .left {
     background-color: #111827;
     overflow-y: auto;
@@ -92,7 +97,28 @@ input[type=number] {
     scrollbar-width: none;
     /* optional: thin, auto, or none */
 }
+#errorBox{
+    background-color: #0F172A;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    min-width: 200px;
+    padding: 12px 12px;
+    border: solid 2px red;
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 3s;
 
+}
+#error{
+    color: white;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+    margin: 0;
+}
 .Optioninput select {
     background-color: transparent;
     color: white;
@@ -213,8 +239,10 @@ ul {
 .right {
     background-image: url("assets/space.png");
     background-repeat: repeat;
-    background-size: contain;
+    background-size: cover;
     width: 80%;
+
+    background-repeat: repeat;
     padding: 32px;
 }
 
@@ -235,6 +263,20 @@ nav>button:not(.active) {
 
 nav>button:hover {
     transform: scale(1.05);
+}
+.activeReset {
+    background-color: #475569;
+    border: solid 1px #4F46E5;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 300ms;
+    margin-left: 4px;
+    padding: 13px 20px;
+    border: none;
+    font-style: normal;
+    border-radius: 40px;
+    color: white;
 }
 
 .active {

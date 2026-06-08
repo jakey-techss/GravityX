@@ -56,7 +56,7 @@
                             <input type="text" placeholder="Orion Veil" id="galaxyName">
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <hr class="Blueline">
@@ -78,10 +78,9 @@
                                 <input type="text" disabled value="" id="surfaceTexture" autocomplete="off">
                                 <input type="file" accept=".jpg, .jpeg, .png, image/*" style="display: none;"
                                     id="SurfaceTextureFile">
-                                    <input type="file" accept=".planet" style="display: none;"
-                                    id="PlanetFile">
+                                <input type="file" accept=".planet" style="display: none;" id="PlanetFile">
                                 <img src="assets/upload-square-svgrepo-com.png" id="fileUpload">
-                                 <img src="assets/shop.png">
+                                <img src="assets/shop.png" id="openShop">
                             </div>
                         </div>
                     </div>
@@ -116,11 +115,12 @@
                         <div class="topBottom">
                             <label>Planet Mass</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass" autocomplete="off">
+                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass"
+                                    autocomplete="off">
                                 <p class="units">kg</p>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="Textinput">
                         <div class="topBottom">
@@ -154,7 +154,7 @@
                                 <p class="units">m</p>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="Textinput">
                         <div class="topBottom">
@@ -164,7 +164,7 @@
                                 <p class="units">kg</p>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -185,8 +185,10 @@
 
         <div class="buttonsHolder">
             <div class="buttons">
-            <button class="basic" id="export">Export Planet</button>
-            <button class="special" id="import"><p class="specialText">Import Planet</p></button>
+                <button class="basic" id="export">Export Planet</button>
+                <button class="special" id="import">
+                    <p class="specialText">Import Planet</p>
+                </button>
             </div>
         </div>
 
@@ -195,7 +197,7 @@
     <div class="right">
         <nav>
             <button class="active">Galaxy</button>
-            <button>Air Bound</button>
+            <a href="airboound.html"><button>Air Bound</button></a>
             <button>Data</button>
             <button>Revolving Physics</button>
         </nav>
@@ -204,12 +206,21 @@
         </section>
     </div>
     <button id="reset" class="activeReset">Reset Camera</button>
-    <div id="errorBox">
-        <p id="error">Invalid Mass</p>
-    </div>
     <div id="start">
         <h1>Gravity X</h1>
         <button class="active" id="startButton">Explore</button>
+    </div>
+    <div id="errorBox">
+        <p id="error">Invalid Mass</p>
+    </div>
+    
+    <div class="shop" id="shop">
+        <div class="mainShop">
+            <h2>Shop</h2>
+            <div id="textureHolder">
+            </div>
+            <button id="exit" class="storeDownload basic">Back</button>
+        </div>
     </div>
     <script src="index.js" type="module"></script>
     <script src="render.js" type="module"></script>

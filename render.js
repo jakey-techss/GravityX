@@ -26,7 +26,7 @@ earthGroup.rotation.z = -23.4 * Math.PI / 180
 
 const geo = new THREE.IcosahedronGeometry(10, 12)
 const mat = new THREE.MeshStandardMaterial({
-    map: loader.load("/assets/Seak Seven.png")
+    map: loader.load("/assets/Seak-Seven.png")
 })
 let planet = new THREE.Mesh(geo, mat)
 const sun = new THREE.DirectionalLight(0xffffff)
@@ -69,7 +69,7 @@ document.getElementById("selectPlanet").addEventListener("change", () => {
         let planetObject = findPlanet(planetName)
         const geo = new THREE.IcosahedronGeometry(10, 12)
         const mat = new THREE.MeshStandardMaterial({
-            map: loader.load(`/assets/Seak Seven.png`)
+            map: loader.load(`/assets/Seak-Seven.png`)
         })
         camera.position.z = 50
         camera.position.x = 0

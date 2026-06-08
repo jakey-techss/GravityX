@@ -201,7 +201,7 @@ const Default = new Planets(
     "",
     "",
     "stable",
-    "Seak Seven.png",
+    "Seak-Seven.png",
     "None",
     "",
     "",
@@ -332,4 +332,25 @@ export function throwError(message, id) {
         document.getElementById("errorBox").style.opacity = 0
         document.getElementById(id).style.borderColor = "white"
     }, 3000)
+}
+
+export class Texture{
+    constructor(name, file){
+        this.name = name;
+        this.file = file;
+        this.render()
+    }
+
+    render() {
+        let element = document.createElement('div')
+        element.classList.add('texture')
+        element.innerHTML = `<div class="image" style="background-image: url(${this.file}); background-size: contain;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <p class="title">${this.name}</p>
+                        <a download href="${this.file}"><button class=" basic storeDownload"
+                            style="display: flex; align-items: center; gap: 3px;">Download</button></a>
+                    </div>`
+        document.getElementById("textureHolder").appendChild(element)
+    }
 }

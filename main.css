@@ -58,6 +58,16 @@ body {
     right: 0;
     margin: 16px;
 }
+.storeDownload{
+    padding: 4px;
+    color: white;
+    font-family: "Exo 2";
+    font-style: normal;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
 .left {
     background-color: #111827;
     overflow-y: auto;
@@ -90,7 +100,9 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
-
+#exit{
+    padding: 6px 12px;
+}
 ::-webkit-scrollbar {
     scrollbar-color: hotpink blue;
     /* thumb color, track color */
@@ -108,6 +120,74 @@ input[type=number] {
     
     flex-direction: column;
     background-color: rgba(11, 16, 32, 0.9);
+}
+#textureHolder{
+    display: flex;
+    flex-wrap: wrap;
+    gap:12px 8px;
+    margin-bottom: 32px;
+    max-height: 70%;
+    overflow-y: auto;
+}
+a{
+    text-decoration: none;
+}
+.shop{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    background-color: rgba(11, 16, 32, 0.9);
+}
+.mainShop{
+    width: 60%;
+    margin:40px;
+    border-radius: 12px;
+    background-color: black;
+    height: 100%;
+    padding: 0px 20px 12px 20px;
+}
+.mainShop > h2{
+    text-align: center;
+    margin-top: 32px;
+    font-family: "Exo 2";
+    font-weight: bold;
+    color: white;
+}
+.texture > .image{
+    width: 125px;
+    height: 125px;
+    border-radius: 4px;
+}
+.storeDownload:hover{
+    transform: scale(1.03);
+}
+
+.texture{
+    display: flex;
+    gap:8px;
+    flex-direction: column;
+    background-color: #1F2C47;
+    border-radius: 4px;
+    width: min-content;
+    transition: all 500ms;
+    align-items: center;
+    padding: 8px;
+}
+.title{
+    color: white;
+    font-family: "Exo 2";
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    margin-bottom: 8px;
+}
+.texture:hover{
+    border: solid 1px white;
+    transform: scale(1.03);
 }
 h1{
     font-family: "Orbitron";
@@ -221,7 +301,6 @@ ul {
     padding: 12px 0px 16px 32px;
     line-height: 28px;
 }
-
 .buttonsHolder {
     display: flex;
     flex-direction: column;
@@ -273,7 +352,7 @@ ul {
     padding: 32px;
 }
 
-nav>button:not(.active) {
+nav button:not(.active) {
     background-color: #475569;
     font-family: "Exo 2";
     font-weight: 600;
@@ -288,7 +367,7 @@ nav>button:not(.active) {
     transition: all 800ms;
 }
 
-nav>button:hover {
+nav button:hover {
     transform: scale(1.05);
 }
 .activeReset {

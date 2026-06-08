@@ -1,5 +1,24 @@
 import { element } from "three/tsl"
-import { dropDown, Planets, throwError, updatePlanets, updatePlanetsWithJSON } from "./Extras.js"
+import { dropDown, Planets, Texture, throwError, updatePlanets, updatePlanetsWithJSON } from "./Extras.js"
+
+let textures = [
+    new Texture("Mercury","/assets/Mercury.png"),
+    new Texture("Venus","/assets/Venus.png"),
+    new Texture("Earth","/assets/Earth.png"),
+    new Texture("Mars","/assets/Mars.png"),
+    new Texture("Jupiter","/assets/Jupiter.png"),
+    new Texture("Saturn","/assets/Saturn.png"),
+    new Texture("Uranus","/assets/Uranus.png"),
+    new Texture("Neptune","/assets/Neptune.png"),
+    new Texture("Seak Seven","/assets/Seak-Seven.png"),
+    new Texture("Xuenedros","/assets/Xuenedros.jpg"),
+    new Texture("Aura X","/assets/aura.png"),
+    new Texture("Leoni","/assets/Blue-rock.png"),
+    new Texture("Seven Stars","/assets/Blue-Swirl.png"),
+    new Texture("Eris","/assets/Eris.png"),
+    new Texture("Xolomena","/assets/Gas-Planet.png"),
+    new Texture("Andreos","/assets/Pink.png"),
+]
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".left .TabContainer").forEach((container) => {
         container.style.display = "none"
@@ -46,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("planetName").value,
             document.getElementById("galaxyName").value,
             document.getElementById("atm").value,
-            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("surfaceTexture").value : `/assets/planets/${document.getElementById("planetName").value}.png`,
+            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("surfaceTexture").value : `/assets/planets/Seak-Seven.png`,
             document.getElementById("Civilization").value,
             document.getElementById("planetMass").value,
             document.getElementById("planetRadius").value,
@@ -67,6 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("start").addEventListener("click", () => {
         document.getElementById("start").style.display = "none"
     })
+
+    document.getElementById("openShop").addEventListener("click", () => {
+        document.getElementById("shop").style.display = "flex"
+    })
+
+    document.getElementById("exit").addEventListener("click", () => {
+        document.getElementById("shop").style.display = "none"
+    })
+    
 
 
 })

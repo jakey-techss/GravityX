@@ -44,7 +44,7 @@ document.getElementById("selectPlanet").addEventListener("change", () => {
         let planetObject = findPlanet(planetName)
         const geo = new THREE.IcosahedronGeometry(planetObject.radius / 2.4398e+6, 12)
         const mat = new THREE.MeshStandardMaterial({
-            map: loader.load(`/assets/planets/${document.getElementById("selectPlanet").value}.png`)
+            map: loader.load(`assets/${document.getElementById("selectPlanet").value}.png`)
         })
         if (planetObject.radius / 2.4398e+6 > 40) {
             camera.position.z = 110
@@ -69,7 +69,7 @@ document.getElementById("selectPlanet").addEventListener("change", () => {
         let planetObject = findPlanet(planetName)
         const geo = new THREE.IcosahedronGeometry(10, 12)
         const mat = new THREE.MeshStandardMaterial({
-            map: loader.load(`/assets/planets/Seak Seven.png`)
+            map: loader.load(`/assets/Seak Seven.png`)
         })
         camera.position.z = 50
         camera.position.x = 0

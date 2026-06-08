@@ -116,12 +116,7 @@ h1{
     margin-bottom: 32px;
     color: white;
 }
-#start > button{
-    transform: scale(1.1);
-}
-#start > button:hover{
-    transform: scale(1.03);
-}
+
 #errorBox{
     background-color: #0F172A;
     position: absolute;

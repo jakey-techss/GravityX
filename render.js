@@ -103,6 +103,8 @@ document.getElementById("fileUpload").addEventListener("click", () => {
 
         reader.onload = (e) => {
             const imageURL = e.target.result
+            document.getElementById("surfaceTexture").value = imageURL
+            
             const mat = new THREE.MeshStandardMaterial({
                 map: loader.load(`${imageURL}`)
             })

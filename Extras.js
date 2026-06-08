@@ -63,11 +63,11 @@ export function updatePlanets(planetSelected) {
 
         document.getElementById("galaxyName").value = Currentplanet.galaxy
         document.getElementById("galaxyName").disabled = true
-
+         document.getElementById("SurfaceTextureFile").value = ""
+        
         document.getElementById("atm").value = Currentplanet.atmosphere
         document.getElementById("atm").disabled = true
 
-        document.getElementById("surfaceTexture").value = Currentplanet.surfaceTexture
         document.getElementById("fileUpload").style.display = "none"
 
         document.getElementById("Civilization").value = Currentplanet.civilzation
@@ -157,7 +157,6 @@ export function updatePlanetsWithJSON(planet) {
     document.getElementById("mcb").disabled = false
     document.getElementById("selectPlanet").value = "Custom"
  
-
 
     document.getElementById("galaxyName").value = Currentplanet.galaxy
 

@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("selectPlanet").addEventListener("change", () => {
         updatePlanets(document.getElementById("selectPlanet").value)
+        if (document.getElementById("selectPlanet").value != "Custom") {
+    
+            document.getElementById("export").style.display = "none"
+        }else{
+            document.getElementById("export").style.display = "block"
+        }
     })
 
     document.getElementById("export").addEventListener("click", () => {
@@ -40,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("planetName").value,
             document.getElementById("galaxyName").value,
             document.getElementById("atm").value,
-            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("SurfaceTextureFile").value : `/assets/planets/${document.getElementById("planetName").value}.png`,
+            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("surfaceTexture").value : `/assets/planets/${document.getElementById("planetName").value}.png`,
             document.getElementById("Civilization").value,
             document.getElementById("planetMass").value,
             document.getElementById("planetRadius").value,
@@ -58,10 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    document.getElementById("start").addEventListener("click",()=>{
+    document.getElementById("start").addEventListener("click", () => {
         document.getElementById("start").style.display = "none"
     })
-    
+
 
 })
 //Creating Planets

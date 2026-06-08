@@ -104,7 +104,8 @@ input[type=number] {
     top: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    
     flex-direction: column;
     background-color: rgba(11, 16, 32, 0.9);
 }
@@ -113,13 +114,14 @@ h1{
     font-weight: bold;
     font-style: normal;
     font-size: 76px;
+    margin-top: 40vh;
     margin-bottom: 32px;
     color: white;
 }
-#start > button{
+#startButton{
     transform: scale(1.1);
 }
-#start > button:hover{
+#startButton:hover{
     transform: scale(1.03);
 }
 #errorBox{

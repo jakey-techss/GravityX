@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("planetName").value,
             document.getElementById("galaxyName").value,
             document.getElementById("atm").value,
-            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("SurfaceTextureFile").value : `assets/planets/${document.getElementById("planetName").value}.png`,
+            document.getElementById("SurfaceTextureFile").value != "" ? document.getElementById("SurfaceTextureFile").value : `/assets/planets/${document.getElementById("planetName").value}.png`,
             document.getElementById("Civilization").value,
             document.getElementById("planetMass").value,
             document.getElementById("planetRadius").value,

@@ -5,7 +5,7 @@ canvas.height = canvas.clientHeight
 ctx.imageSmoothingEnabled = false
 
 const alien = new Image()
-alien.src = "public/assets/Dude_Monster.png"
+alien.src = "/assets/Dude_Monster.png"
 
 alien.onload = () => {
     ctx.scale(2, 2)

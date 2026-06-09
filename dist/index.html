@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <link rel="icon" href="/assets/Owlet_Monster-Cz2ooSih.png">
+    <title>Gravity X</title>
+  <script type="module" crossorigin src="/assets/index-DK3lQygC.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Bza6oMiC.css">
+</head>
+
+<body>
+    <div class="left">
+        <div class="header">
+            <p class="subHeading">X-Planet Editor</p>
+            <hr>
+        </div>
+        <div class="group">
+            <div class="TabHeader" id="planet">
+                <p class="innerHeading">Planet Profile</p>
+                <img src="/assets/dropdown-svgrepo-com-CdpyAOSo.png" id="planetIcon">
+            </div>
+            <div class="TabContainer" id="planetContainer">
+                <div class="planet">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Planet Type</label>
+                            <select id="selectPlanet">
+                                <option value="Custom">Custom</option>
+                                <option value="Mercury">Mercury</option>
+                                <option value="Venus">Venus</option>
+                                <option value="Earth">Earth</option>
+                                <option value="Mars">Mars</option>
+                                <option value="Jupiter">Jupiter</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Uranus">Uranus</option>
+                                <option value="Neptune">Neptune</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nameInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Name</label>
+                            <input type="text" placeholder="Seak Seven" id="planetName">
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="galaxyInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Galaxy</label>
+                            <input type="text" placeholder="Orion Veil" id="galaxyName">
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="LookInfo">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Atmosphere</label>
+                            <select id="atm">
+                                <option value="stable">Stable</option>
+                                <option value="toxic">Toxic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="Fileinput">
+                        <div class="topBottom">
+                            <label>Surface Texture</label>
+                            <div id="row">
+                                <input type="text" disabled value="" id="surfaceTexture" autocomplete="off">
+                                <input type="file" accept=".jpg, .jpeg, .png, image/*" style="display: none;"
+                                    id="SurfaceTextureFile">
+                                <input type="file" accept=".planet" style="display: none;" id="PlanetFile">
+                                <img src="/assets/upload-square-svgrepo-com-biZ3I4oA.png" id="fileUpload">
+                                <img src="/assets/shop-zS8BTduP.png" id="openShop">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="CivilizationInfo">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Civilization</label>
+                            <select id="Civilization">
+                                <option value="None">None</option>
+                                <option value="Ancient">Ancient</option>
+                                <option value="Modern">Modern</option>
+                                <option value="Futuristic">Futuristic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="Blueline">
+        <div class="group">
+            <div class="TabHeader" id="physical">
+                <p class="innerHeading">Physical Properties</p>
+                <img src="/assets/dropdown-svgrepo-com-CdpyAOSo.png" id="physicalIcon">
+            </div>
+            <div class="TabContainer" id="physicalContainer">
+                <div class="PlanetInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Planet Mass</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1.19e+23 - 1.71e+28" id="planetMass"
+                                    autocomplete="off">
+                                <p class="units">kg</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Radius</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="2e+6 - 1.54e+8" id="planetRadius" autocomplete="off">
+                                <p class="units">m</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Rotation Speed</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1 - &#8734;" id="rotationSpeed" autocomplete="off">
+                                <p class="units">m/s</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="Blueline">
+
+                <div class="CentralBody">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Distance From Central Body</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1 - &#8734;" id="dcb" autocomplete="off">
+                                <p class="units">m</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Mass Of Central Body</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="1 - &#8734;" id="mcb" autocomplete="off">
+                                <p class="units">kg</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="Blueline">
+        <div class="group">
+            <div class="TabHeader">
+                <p class="innerHeading">Simulation Analysis</p>
+            </div>
+            <div class="Container">
+                <ul>
+                    <li>Acceleration Due To Gravity: <span id="adg">NaN</span>m/s&sup2;</li>
+                    <li>Escape Velocity: <span id="ev">NaN</span>m/s</li>
+                    <li>Orbital Period: <span id="op">NaN</span>Days</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="buttonsHolder">
+            <div class="buttons">
+                <button class="basic" id="export">Export Planet</button>
+                <button class="special" id="import">
+                    <p class="specialText">Import Planet</p>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="right">
+        <nav>
+            <button class="active">Galaxy</button>
+            <a href="airbound.html"><button>Air Bound</button></a>
+            <button>Data</button>
+            <button>Revolving Physics</button>
+        </nav>
+        <section id="canvasHolder">
+            <canvas id="planet-canvas"></canvas>
+        </section>
+    </div>
+    <button id="reset" class="activeReset">Reset Camera</button>
+    <div id="start">
+        <h1>Gravity X</h1>
+        <button class="active" id="startButton">Explore</button>
+    </div>
+    <div id="errorBox">
+        <p id="error">Invalid Mass</p>
+    </div>
+    
+    <div class="shop" id="shop">
+        <div class="mainShop">
+            <h2>Shop</h2>
+            <div id="textureHolder">
+            </div>
+            <button id="exit" class="storeDownload basic">Back</button>
+        </div>
+    </div>
+</body>
+
+</html>

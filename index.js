@@ -19,7 +19,12 @@ let textures = [
     new Texture("Xolomena","/assets/Gas-Planet.png"),
     new Texture("Andreos","/assets/Pink.png"),
 ]
+if(window.sessionStorage.getItem("past")=="true"){
+    document.getElementById("start").style.display = "none"
+}
 document.addEventListener("DOMContentLoaded", () => {
+    window.sessionStorage.setItem("past",'true')
+    
     document.querySelectorAll(".left .TabContainer").forEach((container) => {
         container.style.display = "none"
     })

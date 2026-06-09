@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <link rel="icon" href="assets/Owlet_Monster.png">
+    <link rel="stylesheet" href="airbound.css">
+    <title>Gravity X</title>
+</head>
+
+<body>
+    <div class="left">
+        <div class="header">
+            <p class="subHeading">Air Bound Sim</p>
+            <hr>
+        </div>
+        <div class="group">
+            <div class="TabHeader" id="planet">
+                <p class="innerHeading">Simulation Properties</p>
+                <img src="assets/dropdown-svgrepo-com.png" id="planetIcon">
+            </div>
+            <div class="TabContainer" id="planetContainer">
+                <div class="planet">
+                    <div class="Optioninput">
+                        <div class="topBottom">
+                            <label>Planet</label>
+                            <select id="selectPlanet">
+                                <option value="Custom">Custom</option>
+                                <option value="Mercury">Mercury</option>
+                                <option value="Venus">Venus</option>
+                                <option value="Earth">Earth</option>
+                                <option value="Mars">Mars</option>
+                                <option value="Jupiter">Jupiter</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Uranus">Uranus</option>
+                                <option value="Neptune">Neptune</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Blueline">
+                <div class="PlanetInfo">
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Mass Of Alien</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="45" id="planetMass"
+                                    autocomplete="off">
+                                <p class="units">kg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Jump Force</label>
+                            <div class="unitsHolder">
+                                <input type="number" placeholder="20" id="planetRadius" autocomplete="off">
+                                <p class="units">N</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Blueline">
+                 <div class="Textinput">
+                        <div class="topBottom">
+                            <label>Trial Name</label>
+                                <input type="text" placeholder="Jupiter Tezt" id="rotationSpeed" autocomplete="off" value="Trial #1">
+                        </div>
+
+                    </div>
+
+            </div>
+        </div>
+        <hr class="Blueline">
+        <div class="group">
+            <div class="TabHeader">
+                <p class="innerHeading">Simulation Analysis</p>
+            </div>
+            <div class="Container">
+                <ul>
+                    <li>Gravitational Acceleration; <span id="adg">NaN</span>m/s&sup2</li>
+                    <li>Total Mechanical Energy: <span id="ev">0</span>J</li>
+                    <li>Max Height: <span id="op">NaN</span>m</li>
+                    <li>Max Velocity: <span id="op">NaN</span>m/s</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="buttonsHolder">
+            <div class="buttons">
+                <button class="basic" id="export">Export Data</button>
+                <button class="special" id="import">
+                    <p class="specialText">Import Planet</p>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="right">
+        <nav>
+            <a href="index.html"><button>Galaxy</button></a>
+            <a><button class="active">Air Bound</button></a>
+            <button>Data</button>
+            <button>Revolving Physics</button>
+        </nav>
+        <section id="canvasHolder">
+            <canvas id="planet-canvas"></canvas>
+        </section>
+    </div>
+    <button id="reset" class="activeReset">Reset Camera</button>
+    <div id="errorBox">
+        <p id="error">Invalid Mass</p>
+    </div>
+    
+    <div class="shop" id="shop">
+        <div class="mainShop">
+            <h2>Shop</h2>
+            <div id="textureHolder">
+            </div>
+            <button id="exit" class="storeDownload basic">Back</button>
+        </div>
+    </div>
+    <script src="airbound.js" type="module"></script>
+    <script src="2D.js" type="module"></script>
+</body>
+
+</html>

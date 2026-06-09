@@ -1,6 +1,7 @@
 {
   "name": "gravityx",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "scripts": {
     "dev": "vite",
@@ -12,8 +13,8 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "vite": "^8.0.16"
-  },
+  "vite": "^5.4.0"
+},
   "engines": {
     "node": "20.x"
   }

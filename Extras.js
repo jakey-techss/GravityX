@@ -36,6 +36,10 @@ export class Planets {
         this.mcb = mcb
         allPlanets.push(this)
     }
+
+    getGravitationAcceleration(){
+        return (((6.67 * Math.pow(10, -11)) * this.mass) / Math.pow(this.radius, 2)).toFixed(4)
+    }
 }
 export function updatePlanets(planetSelected) {
     if (planetSelected != "Custom") {
@@ -354,3 +358,4 @@ export class Texture{
         document.getElementById("textureHolder").appendChild(element)
     }
 }
+

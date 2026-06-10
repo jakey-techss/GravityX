@@ -354,6 +354,9 @@ ul {
     transition: all 500ms;
 
 }
+#dropSim{
+    display: none;
+}
 .CollisionManager{
     display: flex;
     justify-content: space-between;
@@ -379,8 +382,11 @@ ul {
 input[type="range"]{
     background-color: #5B21B6;
 }
+#import{
+    display: none;
+}
 .right {
-    background-image: url("public/assets/spacePlanet.png");
+    background-image: url("/assets/mercury_bg.png");
     background-repeat: repeat;
     background-size: cover;
     width: 80%;
@@ -438,9 +444,13 @@ nav button:hover {
     right: 0;
     width: 73%;
     display: flex;
+    margin-right: 12px;
     justify-content: space-between;
     align-items: center;
     
+}
+.activeReset:hover{
+    transform: scale(1.08);
 }
 .activeReset > img{
     width: 30px;

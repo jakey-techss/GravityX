@@ -41,16 +41,16 @@
                     <div class="topBottom">
                         <label>Simulation Type</label>
                         <div class="unitsHolder">
-                            <input type="radio" name="simType" value="Drop">
+                            <input type="radio" name="simType" value="Drop" id="dropRadio">
                             <p class="units">Drop Simulation</p>
                         </div>
                         <div class="unitsHolder">
-                            <input type="radio" name="simType" value="Jump" checked>
+                            <input type="radio" name="simType" value="Jump" checked id="jumpRadio">
                             <p class="units">Jump Simulation</p>
                         </div>
                     </div>
                 </div>
-                <div class="Textinput">
+                <div class="Textinput" id="jumpSim">
                     <div class="topBottom">
                         <label>Jump Force</label>
                         <div class="unitsHolder">
@@ -59,11 +59,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="Textinput">
+                <div class="Textinput" id="dropSim">
                     <div class="topBottom">
                         <label>Drop Height</label>
                         <div class="unitsHolder">
-                            <input type="number" placeholder="20" id="planetRadius" autocomplete="off">
+                            <input type="number" placeholder="20" id="dropHeight" autocomplete="off">
                             <p class="units">m</p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="topBottom">
                             <label>Mass Of Alien</label>
                             <div class="unitsHolder">
-                                <input type="number" placeholder="45" id="planetMass" autocomplete="off">
+                                <input type="number" placeholder="45" id="planetMass" autocomplete="off" min="0">
                                 <p class="units">kg</p>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                 <div class="Rangeinput">
                     <div class="topBottom">
                         <label>Collision Type</label>
-                        <input type="range" max=1 min=0 step=0.1 value=0.5>
+                        <input type="range" max="1" min="0" step="0.1" value="0.5" id="collisionRange">
                         <div class="CollisionManager">
                             <p>Fully Inelastic</p>
                             <p>Fully Elastic</p>
@@ -111,10 +111,10 @@
             </div>
             <div class="Container">
                 <ul>
-                    <li>Gravitational Acceleration; <span id="adg">NaN</span>m/s&sup2;</li>
-                    <li>Total Mechanical Energy: <span id="ev">0</span>J</li>
+                    <li>Gravitational Acceleration: <span id="adg">NaN</span>m/s&sup2;</li>
+                    <li>Total Mechanical Energy: <span id="ev">NaN</span>J</li>
                     <li>Max Height: <span id="op">NaN</span>m</li>
-                    <li>Max Velocity: <span id="op">NaN</span>m/s</li>
+                    <li>Max Velocity: <span id="mv">NaN</span>m/s</li>
                 </ul>
             </div>
         </div>
@@ -130,7 +130,7 @@
 
 
     </div>
-    <div class="right">
+    <div class="right" id="right">
         <nav>
             <div>
                 <a href="index.html"><button>Galaxy</button></a>
@@ -138,15 +138,16 @@
                 <button>Data</button>
                 <button>Revolving Physics</button>
             </div>
-            <p class="trialTitle">Trial #1</p>
+            <p class="trialTitle" id="trialTitle">Trial #1</p>
         </nav>
         <section id="canvasHolder">
             <canvas id="planet-canvas"></canvas>
         </section>
     </div>
     <div id="bottomNav">
-        <p class="timer">00:00:00</p>
-        <button id="reset" class="activeReset"><img src="public/assets/Frame.png"></button>
+        <p class="timer" id="timer">00:00:00</p>
+         <button id="stop" class="activeReset" style="display: none; background-color: #050816;"><img src="/assets/stop-svgrepo-com.png"></button>
+        <button id="play" class="activeReset"><img src="/assets/Frame.png"></button>
     </div>
     <div id="errorBox">
         <p id="error">Invalid Mass</p>

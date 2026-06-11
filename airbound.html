@@ -37,10 +37,10 @@
                     </div>
                 </div>
                 <hr class="Blueline">
-                <div class="Radioinput">
-                    <div class="topBottom">
+                <div class="Radioinput" >
+                    <div class="topBottom" >
                         <label>Simulation Type</label>
-                        <div class="unitsHolder">
+                        <div class="unitsHolder" style="display: none;">
                             <input type="radio" name="simType" value="Drop" id="dropRadio">
                             <p class="units">Drop Simulation</p>
                         </div>
@@ -96,7 +96,7 @@
                 <div class="Textinput">
                     <div class="topBottom">
                         <label>Trial Name</label>
-                        <input type="text" placeholder="Jupiter Tezt" id="rotationSpeed" autocomplete="off"
+                        <input type="text" placeholder="Jupiter Test" id="rotationSpeed" autocomplete="off"
                             value="Trial #1">
                     </div>
 
@@ -118,7 +118,7 @@
                 </ul>
             </div>
         </div>
-
+        <input type="file" id="PlanetFile" style="display: none;">
         <div class="buttonsHolder">
             <div class="buttons">
                 <button class="basic" id="export">Export Data</button>
@@ -145,7 +145,7 @@
         </section>
     </div>
     <div id="bottomNav">
-        <p class="timer" id="timer">00:00:00</p>
+        <p class="timer" id="timer">00:00:00:000</p>
          <button id="stop" class="activeReset" style="display: none; background-color: #050816;"><img src="/assets/stop-svgrepo-com.png"></button>
         <button id="play" class="activeReset"><img src="/assets/Frame.png"></button>
     </div>

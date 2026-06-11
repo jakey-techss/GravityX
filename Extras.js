@@ -327,14 +327,26 @@ const neptune = new Planets(
 );
 
 export function throwError(message, id) {
+    document.getElementById("errorBox").style.borderColor = "red"
     document.getElementById(id).style.borderColor = "red"
     document.getElementById("error").innerHTML = message
     document.getElementById("errorBox").style.opacity = 1
+    
 
     setTimeout(() => {
 
         document.getElementById("errorBox").style.opacity = 0
         document.getElementById(id).style.borderColor = "white"
+    }, 3000)
+}
+
+export function throwSuccess(message) {
+    document.getElementById("errorBox").style.borderColor = "green"
+    document.getElementById("error").innerHTML = message
+    document.getElementById("errorBox").style.opacity = 1
+
+    setTimeout(() => {
+        document.getElementById("errorBox").style.opacity = 0
     }, 3000)
 }
 
@@ -359,3 +371,10 @@ export class Texture{
     }
 }
 
+export class Data{
+    constructor(id, data, classify){
+        this.classify = classify
+        this.id = id
+        this.data = data
+    }
+}

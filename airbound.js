@@ -1,5 +1,5 @@
 import { element } from "three/tsl"
-import { dropDown, findPlanet, Planets, Texture, throwError, updatePlanets, updatePlanetsWithJSON } from "./Extras.js"
+import { dropDown, findPlanet, Planets, Texture, throwError, throwSuccess, updatePlanets, updatePlanetsWithJSON } from "./Extras.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".left .TabContainer").forEach((container) => {
@@ -18,84 +18,131 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("selectPlanet").addEventListener("change", () => {
         document.getElementById("ev").innerText = "NaN"
-        document.getElementById("mv").innerText =  "NaN"
+        document.getElementById("mv").innerText = "NaN"
         document.getElementById("op").innerText = "NaN"
         if (document.getElementById("selectPlanet").value != "Custom") {
-            const filePath = `/assets/${document.getElementById("selectPlanet").value.toLowerCase()}_bg.png`
-            document.getElementById("right").style.backgroundImage = `url("${filePath}")`;
+           
+            if(!(["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"].includes(document.getElementById("selectPlanet").value))){
+                document.getElementById("right").style.backgroundImage = `url("/assets/spacePlanet.png")`;
+            }else{
+                 const filePath = `/assets/${document.getElementById("selectPlanet").value.toLowerCase()}_bg.png`
+                 document.getElementById("right").style.backgroundImage = `url("${filePath}")`;
+            }
             document.getElementById("import").style.display = "none";
             const planet = findPlanet(document.getElementById("selectPlanet").value)
             document.getElementById("adg").innerHTML = planet.getGravitationAcceleration()
             currentAcceleration = planet.getGravitationAcceleration()
+            
         } else {
             document.getElementById("import").style.display = "block";
+            document.getElementById("ev").innerText = "NaN"
+            document.getElementById("mv").innerText = "NaN"
+            document.getElementById("op").innerText = "NaN"
+            document.getElementById("adg").innerText = "NaN"
+            document.getElementById("right").style.backgroundImage = `url("/assets/spacePlanet.png")`;
+            document.getElementById("import").addEventListener("click", () => {
+                document.getElementById("PlanetFile").click()
+                document.getElementById("PlanetFile").addEventListener("change", async function (e) {
+
+                    const file = e.target.files[0];
+
+                    if (!file) return;
+                    const text = await file.text();
+                    const jsonData = JSON.parse(text);
+
+
+                    let CustomPlanet = new Planets(
+                        jsonData.name, 
+                        jsonData.galaxy, 
+                        jsonData.atmosphere, 
+                        jsonData.surfaceTexture, 
+                        jsonData.civilization, 
+                        jsonData.mass, 
+                        jsonData.radius, 
+                        jsonData.rotation_speed, 
+                        jsonData.dcb, 
+                        jsonData.mcb, 
+                        jsonData.a
+                    )
+                    let option = document.createElement('option')
+                    option.value = jsonData.name
+                    option.innerHTML = jsonData.name
+                    document.getElementById("selectPlanet").appendChild(option)
+                    document.getElementById("selectPlanet").value = jsonData.name
+                    const planet = findPlanet(document.getElementById("selectPlanet").value)
+                    console.log(planet)
+                    document.getElementById("adg").innerHTML = planet.getGravitationAcceleration()
+                    currentAcceleration = planet.getGravitationAcceleration()
+                    throwSuccess("Sucessfully imported planet")
+                })
+            })
         }
         calcVals()
     })
 
-    document.getElementById("dropRadio").addEventListener("click",()=>{
+    document.getElementById("dropRadio").addEventListener("click", () => {
         document.getElementById("jumpSim").style.display = "none"
         document.getElementById("dropSim").style.display = "block"
-         document.getElementById("ev").innerText = "NaN"
-        document.getElementById("mv").innerText =  "NaN"
+        document.getElementById("ev").innerText = "NaN"
+        document.getElementById("mv").innerText = "NaN"
         document.getElementById("op").innerText = "NaN"
         document.getElementById("planetRadius").value = ""
     })
 
-    document.getElementById("jumpRadio").addEventListener("click",()=>{
-         document.getElementById("dropSim").style.display = "none"
+    document.getElementById("jumpRadio").addEventListener("click", () => {
+        document.getElementById("dropSim").style.display = "none"
         document.getElementById("jumpSim").style.display = "block"
         document.getElementById("ev").innerText = "NaN"
-        document.getElementById("mv").innerText =  "NaN"
+        document.getElementById("mv").innerText = "NaN"
         document.getElementById("op").innerText = "NaN"
         document.getElementById("dropHeight").value = ""
-       
+
     })
 
-    document.getElementById("planetRadius").addEventListener("focusout",()=>{
-        if(document.getElementById("planetRadius").value < 0){
-            throwError("Jump force must be positive","planetRadius")
+    document.getElementById("planetRadius").addEventListener("focusout", () => {
+        if (document.getElementById("planetRadius").value < 0) {
+            throwError("Jump force must be positive", "planetRadius")
             document.getElementById("planetRadius").value = ""
         }
-        else{
+        else {
             calcVals()
         }
     })
 
-    document.getElementById("planetMass").addEventListener("focusout",()=>{
-        if(document.getElementById("planetMass").value < 0){
-            throwError("Mass must be positive","planetMass")
+    document.getElementById("planetMass").addEventListener("focusout", () => {
+        if (document.getElementById("planetMass").value < 0) {
+            throwError("Mass must be positive", "planetMass")
             document.getElementById("planetMass").value = ""
         }
-        else{
+        else {
             calcVals()
         }
     })
 
-function calcVals(){
-    if(document.getElementById("planetRadius").value != "" && document.getElementById("planetMass").value != ""){
-            
-                const netForce = document.getElementById("planetRadius").value - (document.getElementById("planetMass").value*currentAcceleration)
-                if(netForce < 0 ){
-                    throwError("Insufficient Jump Force","planetRadius")
-                }else{
-                    let m = document.getElementById("planetMass").value
-                    let acceleration = netForce/document.getElementById("planetMass").value
-                    let Vatbottom = acceleration*0.2 //Gotten from data stating that it take about 200ms to 300ms to make a jump
-                    let KE_i = (m*Math.pow(Vatbottom,2))/2
-                    document.getElementById("ev").innerText = KE_i.toPrecision(4)
-                    document.getElementById("mv").innerText =  Vatbottom.toPrecision(4)
-                    document.getElementById("op").innerText =  (Math.pow(Vatbottom,2)/(2*currentAcceleration)).toPrecision(4)
-                }
+    function calcVals() {
+        if (document.getElementById("planetRadius").value != "" && document.getElementById("planetMass").value != "") {
+
+            const netForce = document.getElementById("planetRadius").value - (document.getElementById("planetMass").value * currentAcceleration)
+            if (netForce < 0) {
+                throwError("Insufficient Jump Force", "planetRadius")
+            } else {
+                let m = document.getElementById("planetMass").value
+                let acceleration = netForce / document.getElementById("planetMass").value
+                let Vatbottom = acceleration * 0.2 //Gotten from data stating that it take about 200ms to 300ms to make a jump
+                let KE_i = (m * Math.pow(Vatbottom, 2)) / 2
+                document.getElementById("ev").innerText = KE_i.toPrecision(4)
+                document.getElementById("mv").innerText = Vatbottom.toPrecision(4)
+                document.getElementById("op").innerText = (Math.pow(Vatbottom, 2) / (2 * currentAcceleration)).toPrecision(4)
             }
-}
-document.getElementById("rotationSpeed").addEventListener("input",()=>{
-    if(document.getElementById("rotationSpeed").value == ""){
-        throwError("Trial Name must be a valid string","rotationSpeed")
-    }else{
-        document.getElementById("trialTitle").innerText = document.getElementById("rotationSpeed").value
+        }
     }
-})
+    document.getElementById("rotationSpeed").addEventListener("input", () => {
+        if (document.getElementById("rotationSpeed").value == "") {
+            throwError("Trial Name must be a valid string", "rotationSpeed")
+        } else {
+            document.getElementById("trialTitle").innerText = document.getElementById("rotationSpeed").value
+        }
+    })
 })
 
 

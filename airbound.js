@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         jsonData.galaxy, 
                         jsonData.atmosphere, 
                         jsonData.surfaceTexture, 
-                        jsonData.civilization, 
+                        jsonData.civilzation, 
                         jsonData.mass, 
                         jsonData.radius, 
                         jsonData.rotation_speed, 

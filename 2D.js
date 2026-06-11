@@ -7,6 +7,20 @@ if (window.sessionStorage.getItem("data") != null) {
     let datas = JSON.parse(window.sessionStorage.getItem("data"))
     document.getElementById("rotationSpeed").value = "Trial #" + (datas.length + 1)
     document.getElementById("trialTitle").innerHTML = document.getElementById("rotationSpeed").value
+    document.getElementById("export").addEventListener("click",()=>{
+        let lastData = datas[datas.length - 1].data
+        let outputString = ""
+        for(let i=0; i < lastData.length; i++){
+            outputString+=lastData[i].join(",")+"\n"
+        }
+        let csvFile = new Blob([outputString],{
+            type: "application/csv"
+        })
+         const link = document.createElement('a');
+        link.href = URL.createObjectURL(csvFile);
+        link.download = `${datas[datas.length - 1].classify}.csv`;
+        link.click()
+    })
 }
 const canvas = document.getElementById("planet-canvas")
 const ctx = canvas.getContext("2d");

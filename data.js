@@ -54,7 +54,7 @@ document.getElementById("selectPlanet").addEventListener("change", () => {
         document.getElementById("dataRow").removeChild(document.getElementById("dataRow").lastChild)
     }
 
-    for (let i = 1; i < currentData.length / 2; i += 2) {
+    for (let i = 1; i < currentData.length; i += 2) {
         let row = document.createElement('tr')
         row.innerHTML = `<td>${average(currentData[i][0], currentData[i + 1][0]).toPrecision(3)}</td>
                 <td>${average(currentData[i][1], currentData[i + 1][1]).toPrecision(4)}</td>

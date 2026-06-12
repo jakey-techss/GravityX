@@ -18,6 +18,12 @@ let textures = [
     new Texture("Eris","/assets/Eris.png"),
     new Texture("Xolomena","/assets/Gas-Planet.png"),
     new Texture("Andreos","/assets/Pink.png"),
+    new Texture("Grandominos","/assets/EP.png"),
+    new Texture("Gangar","/assets/Purple_gas.png"),
+    new Texture("Risterito","/assets/RBR.png"),
+    new Texture("Tristan","/assets/Tristan.png"),
+    new Texture("Quang","/assets/Quang.png"),
+    new Texture("Tung Tung Tung Sahur","/assets/T3.png"),
 ]
 if(window.sessionStorage.getItem("past")=="true"){
     document.getElementById("start").style.display = "none"

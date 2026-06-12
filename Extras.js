@@ -372,9 +372,13 @@ export class Texture{
 }
 
 export class Data{
-    constructor(id, data, classify){
+    constructor(id, data, classify, GA, TME, MH, MV){
         this.classify = classify
         this.id = id
         this.data = data
+        this.GA = GA
+        this.TME = TME
+        this.MH = MH
+        this.MV = MV
     }
 }

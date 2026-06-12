@@ -1,22 +1,21 @@
 import { throwError, findPlanet, Data } from "./Extras";
 let csv = [
     ["Time", "Displacement", "Velocity", "Acceleration"],
-    [0, 0, 0, 0]
 ]
 if (window.sessionStorage.getItem("data") != null) {
     let datas = JSON.parse(window.sessionStorage.getItem("data"))
     document.getElementById("rotationSpeed").value = "Trial #" + (datas.length + 1)
     document.getElementById("trialTitle").innerHTML = document.getElementById("rotationSpeed").value
-    document.getElementById("export").addEventListener("click",()=>{
+    document.getElementById("export").addEventListener("click", () => {
         let lastData = datas[datas.length - 1].data
         let outputString = ""
-        for(let i=0; i < lastData.length; i++){
-            outputString+=lastData[i].join(",")+"\n"
+        for (let i = 0; i < lastData.length; i++) {
+            outputString += lastData[i].join(",") + "\n"
         }
-        let csvFile = new Blob([outputString],{
+        let csvFile = new Blob([outputString], {
             type: "application/csv"
         })
-         const link = document.createElement('a');
+        const link = document.createElement('a');
         link.href = URL.createObjectURL(csvFile);
         link.download = `${datas[datas.length - 1].classify}.csv`;
         link.click()
@@ -80,7 +79,16 @@ alienSprite.onload = () => {
             document.querySelectorAll(".left input[type=range]").forEach((element) => {
                 element.disabled = true
             })
-
+            let planet = findPlanet(document.getElementById("selectPlanet").value)
+                let currentAcceleration = planet.getGravitationAcceleration()
+                 let netForce = document.getElementById("planetRadius").value - (document.getElementById("planetMass").value * currentAcceleration)
+                 let acceleration = netForce / document.getElementById("planetMass").value
+                 let Vatbottom = acceleration * 0.2
+            if (netForce < 0) {
+                    error++
+                    throwError("Insufficient Jump Force", "planetRadius")
+                }
+            
             if (error == 0) {
                 document.getElementById("play").style.display = "none"
                 document.getElementById("stop").style.display = "block"
@@ -91,11 +99,7 @@ alienSprite.onload = () => {
                     minutes: 0,
                     hours: 0,
                 }
-                const planet = findPlanet(document.getElementById("selectPlanet").value)
-                let currentAcceleration = planet.getGravitationAcceleration()
-                const netForce = document.getElementById("planetRadius").value - (document.getElementById("planetMass").value * currentAcceleration)
-                let acceleration = netForce / document.getElementById("planetMass").value
-                let Vatbottom = acceleration * 0.2
+                
                 const alien = {
                     x: canvas.width / 4,
                     y: (canvas.height / 2.425),
@@ -106,29 +110,27 @@ alienSprite.onload = () => {
                 }
 
                 let startTime = play(time, "timer", alien)
-                if (netForce < 0) {
-                    throwError("Insufficient Jump Force", "planetRadius")
-                    error++
-                }
+                
                 csv = [
                     ["Time", "Displacement", "Velocity", "Acceleration"],
-                    [0, 0, 0, 0]
                 ]
                 function animateJump() {
                     animationId = requestAnimationFrame(animateJump);
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    let newRow = [(new Date().getTime() - startTime.getTime()) / 1000, (Math.pow(alien.velocityY / 6, 2)) / (2 * alien.gravity), Math.abs(alien.velocityY / 6) <= 0.3 ? 0 : alien.velocityY / 6, alien.acceleration / 0.25]
+                    let newRow = [(new Date().getTime() - startTime.getTime()) / 1000, (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538 < 0 ? 0 : (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538, Math.abs(alien.velocityY / 4) <= 0.3 ? 0 : alien.velocityY / 4, alien.acceleration / 0.25]
                     csv.push(newRow)
 
                     // Physics
                     alien.velocityY += alien.acceleration;
                     alien.y += (alien.velocityY * -1)
-
-
+                    newRow = [(new Date().getTime() - startTime.getTime()) / 1000, (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538 < 0 ? 0 : (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538, Math.abs(alien.velocityY / 4) <= 0.3 ? 0 : alien.velocityY / 4, alien.acceleration / 0.25]
+                    csv.push(newRow)
                     //Floor Collision
                     if (alien.y + alien.radius > canvas.height) {
                         alien.y = canvas.height - alien.radius;
                         alien.velocityY *= -1 * document.getElementById("collisionRange").value;
+                        newRow = [(new Date().getTime() - startTime.getTime()) / 1000, (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538 < 0 ? 0 : (alien.y - (canvas.height / 2.425)) / -59.5294125777471043538 , Math.abs(alien.velocityY / 4) <= 0.3 ? 0 : alien.velocityY / 4,alien.acceleration / 0.25]
+                        csv.push(newRow)
                     }
                     // Draw
                     ctx.beginPath();
@@ -142,8 +144,6 @@ alienSprite.onload = () => {
                 })
             }
 
-            const planet = findPlanet(document.getElementById("selectPlanet").value)
-            let currentAcceleration = planet.getGravitationAcceleration()
             function play(timeControl, timeId, alienObject) {
 
                 const netForce = document.getElementById("planetRadius").value - (document.getElementById("planetMass").value * alienObject.gravity)
@@ -170,8 +170,8 @@ alienSprite.onload = () => {
                 }, 1)
                 return new Date()
             }
-        }else{
-            throwError("Please import a custom planet","selectPlanet")
+        } else {
+            throwError("Please import a custom planet", "selectPlanet")
         }
 
     })
@@ -199,13 +199,14 @@ alienSprite.onload = () => {
             element.disabled = false
         })
         if (window.sessionStorage.getItem("data") == null) {
-            let datas = [new Data(0, csv, document.getElementById("rotationSpeed").value)]
+            let datas = [new Data(0, csv, document.getElementById("rotationSpeed").value, document.getElementById("adg").innerText, document.getElementById("ev").innerText, document.getElementById("op").innerText,document.getElementById("mv").innerText)]
             window.sessionStorage.setItem("data", JSON.stringify(datas))
             document.getElementById("rotationSpeed").value = "Trial #" + (datas.length + 1)
             document.getElementById("trialTitle").innerHTML = document.getElementById("rotationSpeed").value
         } else {
             let datas = JSON.parse(window.sessionStorage.getItem("data"))
-            datas.push(new Data(datas.length, csv, document.getElementById("rotationSpeed").value))
+            datas.push(new Data(datas.length, csv, document.getElementById("rotationSpeed").value, document.getElementById("adg").innerText, document.getElementById("ev").innerText, document.getElementById("op").innerText,document.getElementById("mv").innerText))
+            window.sessionStorage.setItem("data", JSON.stringify(datas))
             window.sessionStorage.setItem("data", JSON.stringify(datas))
             document.getElementById("rotationSpeed").value = "Trial #" + (datas.length + 1)
             document.getElementById("trialTitle").innerHTML = document.getElementById("rotationSpeed").value

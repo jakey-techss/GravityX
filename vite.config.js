@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         airbound: resolve(__dirname, 'airbound.html'),
+        data: resolve(__dirname,'data.html')
       }
     }
   }

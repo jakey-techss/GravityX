@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <link rel="icon" href="assets/Owlet_Monster.png">
+    <link rel="stylesheet" href="data.css">
+    <title>Gravity X</title>
+</head>
+
+<body>
+    <nav>
+        <div class="Header">
+            <p>Galaxy X Data Center</p>
+        </div>
+        <div>
+            <a href="index.html"><button>Galaxy</button></a>
+            <a href="airbound.html"><button>Air Bound</button></a>
+            <a><button class="active">Data</button></a>
+        </div>
+
+    </nav>
+    <div class="Optioninput">
+        <div class="topBottom">
+            <select id="selectPlanet">
+                
+            </select>
+        </div>
+    </div>
+    <div id="Rundown">
+        <div class="card">
+            <p class="CardTitle">Gravitational Acceleration</p>
+            <p class="CardInfo" id="GA">NaN</p>
+            <p class="units">Meters per second&sup2;</p>
+        </div>
+        <div class="card">
+            <p class="CardTitle">Total Mechanical Energy</p>
+            <p class="CardInfo" id="TME">NaN</p>
+            <p class="units">Joules</p>
+        </div>
+        <div class="card">
+            <p class="CardTitle">Max Height</p>
+            <p class="CardInfo" id="MH">NaN</p>
+            <p class="units">Meters</p>
+        </div>
+        <div class="card">
+            <p class="CardTitle">Max Velocity</p>
+            <p class="CardInfo" id="MV">NaN</p>
+            <p class="units">Meters per second</p>
+        </div>
+        <div class="card">
+            <p class="CardTitle">Air Time</p>
+            <p class="CardInfo" id="AT">NaN</p>
+            <p class="units">Seconds</p>
+        </div>
+    </div>
+
+    <div>
+        <h2>Table Data</h2>
+        <table id="dataRow">
+            <tr>
+                <th>Time (s)</th>
+                <th>Position (m)</th>
+                <th>Velocity (m/s)</th>
+                <th id="acc">Acceleration (m/s/s)</th>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+        <button class="basic" id="export">Export Data</button>
+    </div>
+    <div id="errorBox">
+        <p id="error">Invalid Mass</p>
+    </div>
+    <script src="data.js" type="module"></script>
+</body>
+
+</html>
